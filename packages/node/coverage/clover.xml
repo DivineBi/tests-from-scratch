@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747400049408" clover="3.2.0">
-  <project timestamp="1747400049408" name="All files">
+<coverage generated="1747403952552" clover="3.2.0">
+  <project timestamp="1747403952553" name="All files">
     <metrics statements="33" coveredstatements="30" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="5" elements="41" coveredelements="36" complexity="0" loc="33" ncloc="33" packages="1" files="3" classes="3"/>
     <file name="server.ts" path="C:\projects\tests-from-scratch\packages\node\src\server.ts">
       <metrics statements="9" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
       <line num="7" count="1" type="stmt"/>
-      <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="11" count="0" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="11" count="1" type="cond" truecount="0" falsecount="1"/>
       <line num="12" count="0" type="stmt"/>
       <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
     </file>
     <file name="users.ts" path="C:\projects\tests-from-scratch\packages\node\src\users.ts">
       <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>

@@ -32,3 +32,15 @@ export function resetStore(): void {
     users = []; 
     nextId = 1;
 }
+
+export function getUserById(id: number): User | undefined { 
+    return users.find(u => u.id === id);
+}
+
+export function updateUserName(id: number, name: string): User | undefined { 
+    const user = getUserById(id); 
+    if (user) {
+        user.name = name; 
+    } 
+    return user;
+}

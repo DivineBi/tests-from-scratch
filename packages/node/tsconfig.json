@@ -3,7 +3,8 @@
 	"compilerOptions": {
         "rootDir": "src",
 	    "outDir": "dist",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "types": ["jest"]
 	},
 	"include": ["src/**/*","__test__/**/*"],
 }

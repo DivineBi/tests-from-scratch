@@ -1,7 +1,7 @@
 // src/users.ts
 
 import { Router, Request, Response } from "express";
-import { getUsers, createUser } from './usersStore';
+import { getUsers, createUser, getUserById, updateUserName } from './usersStore';
 
 
 const router = Router();
@@ -28,5 +28,31 @@ router.post("/", (req: Request, res: Response) => {
 	const user = createUser(name)
 	res.status(201).json(user)
 })
+
+// GET /users/:id
+router.get('/:id', (req, res) => { 
+    const id = Number(req.params.id); 
+    const user = getUserById(id); 
+    if (!user) {
+    res.status(404).json({ error: 'User not found' }); 
+    return;
+    } 
+});
+
+// PUT /users/:id
+router.put('/:id', (req, res) => { 
+    const id = Number(req.params.id); 
+    const { name } = req.body; 
+    if (!name) {
+        res.status(400).json({ error: 'name is required' }); 
+        return;
+    }
+    const updated = updateUserName(id, name); 
+    if (!updated) {
+        res.status(404).json({ error: 'User not found' });
+        return; 
+    }  
+    res.json(updated);
+});
 
 export default router;
