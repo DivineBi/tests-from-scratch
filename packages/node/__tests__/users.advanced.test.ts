@@ -4,6 +4,7 @@ import { resetStore } from '../src/usersStore';
 import * as fixtures from './fixtures';
 import * as externalApi from '../src/externalApi';
 
+
 describe('API Users – tests avancés', () => { 
     // Avant chaque test, on initialise le store avec nos fixtures 
     beforeEach(() => { 

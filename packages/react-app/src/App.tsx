@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { UserList } from './components/UserList';  
+import { UserForm } from './components/UserForm';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [users, setUsers] = useState<string[]>([]);
+
+    const handleUserCreated = (newUser: string) => {
+        setUsers([...users, newUser]);
+    };
+
+    return (
+      <div>
+          <h1>Utilisateurs</h1>  
+          <UserForm onCreated={handleUserCreated} />  {/*  Ajout du formulaire */}
+          <UserList />  {/*  Ajout de la liste */}
+      </div>
   );
 }
+
+
+
 
 export default App;

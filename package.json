@@ -5,17 +5,23 @@
   "main": "index.js",
   "author": "Divine-Bi <dbingila@outlook.com>",
   "license": "MIT",
-  "workspaces": [ 
-  "packages/node", 
-  "packages/react-app", 
-  "packages/ng-app" 
+  "workspaces": [
+    "packages/node",
+    "packages/react-app",
+    "packages/ng-app",
+    "packages/e2e"
   ],
-  "scripts": { 
-    "build:node": "yarn workspace node tsc", 
-    "start:node": "yarn workspace node node dist/index.js", 
-    "build:react": "yarn workspace react-app build", 
-    "start:react": "yarn workspace react-app start", 
-    "build:ng": "yarn workspace ng-app build", 
-    "start:ng": "yarn workspace ng-app start"
+  "scripts": {
+    "build:node": "yarn workspace node tsc",
+    "start:node": "yarn workspace node node dist/index.js",
+    "build:react": "yarn workspace react-app build",
+    "start:react": "yarn workspace react-app start",
+    "build:ng": "yarn workspace ng-app build",
+    "start:ng": "yarn workspace ng-app start",
+    "e2e": "playwright test --config=packages/e2e/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "jest": "^29.7.0"
   }
 }

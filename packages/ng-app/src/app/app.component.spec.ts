@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { test, expect } from '@playwright/test';
 
+// Tests Angular (Unit Tests) 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -27,3 +29,15 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-app');
   });
 });
+
+//Tests E2E Playwright 
+test.beforeEach(async ({ page }) => {
+  await page.goto('http://localhost:3000');
+});
+
+test.describe('AppComponent E2E', () => {
+  test('should render correctly', async ({ page }) => {
+    await expect(page.locator('#app')).toBeVisible();
+  });
+});
+
