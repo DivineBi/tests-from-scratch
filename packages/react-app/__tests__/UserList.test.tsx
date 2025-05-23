@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { UserList } from '../src/components/UserList';
-import { worker } from '../src/mocks/browser';
+import { server } from '../src/mocks/browser';
 import { http, HttpResponse } from 'msw';
 import '@testing-library/jest-dom';
 
@@ -21,7 +21,7 @@ describe('UserList Component', () => {
  
  it('affiche une erreur si l’API échoue', async () => { 
   // On override le handler pour renvoyer 500 
-  worker.use(
+  server.use(
    http.get('/users', () => {
     return HttpResponse.json({ error: "Server Error" }, { status: 500 })
    })
