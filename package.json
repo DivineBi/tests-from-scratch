@@ -18,7 +18,8 @@
     "start:react": "yarn workspace react-app start",
     "build:ng": "yarn workspace ng-app build",
     "start:ng": "yarn workspace ng-app start",
-    "e2e": "playwright test --config=packages/e2e/playwright.config.ts"
+    "e2e": "playwright test --config=packages/e2e/playwright.config.ts",
+    "lint": "yarn workspace react-app lint"
     
   },
   "devDependencies": {
