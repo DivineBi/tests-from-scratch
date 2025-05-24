@@ -19,6 +19,7 @@
     "build:ng": "yarn workspace ng-app build",
     "start:ng": "yarn workspace ng-app start",
     "e2e": "playwright test --config=packages/e2e/playwright.config.ts"
+    
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
