@@ -1,7 +1,7 @@
 import {  http, HttpResponse } from 'msw';
 import { User } from '../hooks/useUsers';
 
-let users: User[] = [ 
+const users: User[] = [ 
  { id: 1, name: 'Alice' },    
  { id: 2, name: 'Bob' },
 ];
