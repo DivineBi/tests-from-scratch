@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { UserForm } from '../src/components/UserForm';
-import {expect, jest, test} from '@jest/globals';
+import {expect, jest} from '@jest/globals';
 
 describe('UserForm Component', () => {
     it('appel onCreated avec le bon nom au submit', async () => {
