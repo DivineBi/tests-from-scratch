@@ -3,6 +3,8 @@ import { useUsers } from '../hooks/useUsers';
 
 export function UserList() { 
  const { users, loading, error } = useUsers(); 
+
+ console.log("Fetched users:", users); 
  
  if (loading) return <div role="status">Chargement...</div>; 
  if (error) return <div role="alert">Erreur : {error}</div>; 

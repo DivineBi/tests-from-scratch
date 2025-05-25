@@ -10,8 +10,11 @@ export function UserForm({ onCreated }: Props) {
  return ( 
   <form 
    onSubmit={e => { 
-    e.preventDefault(); 
+    e.preventDefault();
+    if (name.trim()) { 
+     // Appel du callback avec le nom saisi 
     onCreated(name);
+    }
    }} 
   > 
    <label htmlFor="name">Nom :</label> 

@@ -6,11 +6,16 @@ const users: User[] = [
  { id: 2, name: 'Bob' },
 ];
 
-export const handlers = [ 
- // GET /users 
- http.get('/users', () => { 
-  return HttpResponse.json(users, { status : 200}); 
- }), 
+ export const handlers = [
+    http.get("/users", async () => { //  URL complète pour éviter les problèmes de CORS
+      // Simuler une réponse avec des données d'utilisateurs
+      await new Promise((r) => setTimeout(r, 100));
+      return HttpResponse.json([
+        { id: 1, name: "Alice" },
+        { id: 2, name: "Bob" }
+      ]);
+    }),
+  
  
   // POST /users 
   http.post('/users', async ({ request }) => { 
