@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { app } from '../src/server';
-import { resetStore } from '../src/usersStore';
+import { createUser, resetStore } from '../src/usersStore';
 import * as fixtures from './fixtures';
 import * as externalApi from '../src/externalApi';
 
@@ -15,6 +15,7 @@ describe('API Users – tests avancés', () => {
             // ici on assigne directement : 
             // (en pratique, ajouter une fonction setUsers pour les tests) 
             // Simplifions : on simule via mocking du store 
+            createUser(u.name); // crée un utilisateur avec auto-incrémentation 
         }); 
     }); 
     
@@ -57,8 +58,13 @@ it('PUT /users/99 non existant → 404', async () => {
 it('PUT /users/2 avec name → 200 & user mis à jour', async () => { 
     // Préparer : ajouter Bob 
     await request(app).post('/users').send({ name: fixtures.bob.name }); 
+    // Mise à jour de Bob
     const res = await request(app).put('/users/2').send({ name: 'Bobby' });
+    // Assertion : res.body doit contenir l'utilisateur mis à jour
+    const userResponse = res.body as { id: number; name: string };
+    // Vérifier le statut et le contenu
     expect(res.status).toBe(200); 
+    // Vérifier que l'utilisateur a été mis à jour
     expect(res.body).toMatchObject({ id: 2, name: 'Bobby' }); 
 });
 });

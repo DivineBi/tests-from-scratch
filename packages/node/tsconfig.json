@@ -1,10 +1,21 @@
 {
-	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-        "rootDir": "src",
-	    "outDir": "dist",
-        "moduleResolution": "node",
-        "types": ["jest"]
+	  "target": "ES2020",             // Cible de sortie JavaScript
+	  "module": "commonjs",           // Node.js utilise CommonJS pour les modules
+	  "moduleResolution": "node",     // Aide la résolution des modules
+	  "esModuleInterop": true,        // Permet d'utiliser les imports ES6 avec des modules CommonJS
+	  "outDir": "./dist",             // Dossier de sortie pour les fichiers compilés
+	  "rootDir": ".",             // Dossier racine des fichiers sources
+	  "strict": true,                 // Active les vérifications strictes
+	  "skipLibCheck": true,           // Exclut les vérifications des types des fichiers de déclaration
+	  "types": ["jest", "node"]       // includes type definitions for Jest and Node.js
 	},
-	"include": ["src/**/*","__test__/**/*"],
-}
+	"include": [
+	  "src/**/*", 
+	  "__tests__/**/*"
+	],
+	"exclude": [
+	  "node_modules"
+	]
+  }
+  

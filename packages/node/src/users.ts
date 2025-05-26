@@ -37,6 +37,7 @@ router.get('/:id', (req, res) => {
     res.status(404).json({ error: 'User not found' }); 
     return;
     } 
+    res.status(200).json(user);  // Renvoie l'utilisateur trouvé
 });
 
 // PUT /users/:id
