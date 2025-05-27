@@ -125,10 +125,21 @@ jobs:
       - name: Install dependencies 
         run: yarn install --frozen-lockfile 
       
-      - name: Start server
-        run: yarn start &
+        # 👉 Start backend
+      - name: Start backend
+        run: yarn start:node &
+      
+      - name: Wait for backend
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          url: 'http://localhost:3001'
+          timeout: 60
 
-      - name: Wait for server to be ready
+    # 👉 Start frontend
+      - name: Start frontend
+        run: yarn start:react &
+
+      - name: Wait for frontend
         uses: jakejarvis/wait-action@v0.1.0
         with:
           url: 'http://localhost:3000'
