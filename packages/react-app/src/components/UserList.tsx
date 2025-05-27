@@ -1,19 +1,29 @@
+//UserList.tsx
 import React from 'react';
 
-// Définition des propriétés attendues par le composant
+//définition des props du composant UserList
 interface Props {
-  users: string[];
+  users?: string[];
+  loading?: boolean;
+  error?: string;
 }
 
-// Composant qui reçoit la liste des utilisateurs en props
-export function UserList({ users }: Props) {
+export function UserList({ users = [], loading = false, error }: Props) {
+  if (loading) {
+    return <div role="status">Chargement...</div>;
+  }
+
+  if (error) {
+    return <div role="alert">Erreur : {error}</div>;
+  }
+
   return (
     <ul>
-      {/* On affiche chaque utilisateur dans un <li> */}
       {users.map((user, index) => (
         <li key={index}>{user}</li>
       ))}
     </ul>
   );
 }
+
 

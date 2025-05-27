@@ -1,4 +1,5 @@
 import { server } from "./src/mocks/browser";
+import '@testing-library/jest-dom';
 
 // démarre le serveur mock avant le début des tests
 beforeAll(() => server.listen());

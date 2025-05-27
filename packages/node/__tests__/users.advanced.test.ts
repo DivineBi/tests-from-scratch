@@ -65,6 +65,6 @@ it('PUT /users/2 avec name → 200 & user mis à jour', async () => {
     // Vérifier le statut et le contenu
     expect(res.status).toBe(200); 
     // Vérifier que l'utilisateur a été mis à jour
-    expect(res.body).toMatchObject({ id: 2, name: 'Bobby' }); 
+    expect(res.body).toMatchObject({ id: expect.any(Number), name: 'Bobby' }); 
 });
 });

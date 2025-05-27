@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { Response as NodeFetchResponse } from 'node-fetch';
 
 // Define the global fetch and Response types.
