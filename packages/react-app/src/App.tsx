@@ -15,7 +15,7 @@ function App() {
       <div>
           <h1>Utilisateurs</h1>  
           <UserForm onCreated={handleUserCreated} />  {/*  Ajout du formulaire */}
-          <UserList />  {/*  Ajout de la liste */}
+          <UserList users={users} />  {/*  Ajout de la liste */}
       </div>
   );
 }

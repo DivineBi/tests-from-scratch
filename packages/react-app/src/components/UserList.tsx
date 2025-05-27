@@ -1,19 +1,19 @@
 import React from 'react';
-import { useUsers } from '../hooks/useUsers';
 
-export function UserList() { 
- const { users, loading, error } = useUsers(); 
-
- console.log("Fetched users:", users); 
- 
- if (loading) return <div role="status">Chargement...</div>; 
- if (error) return <div role="alert">Erreur : {error}</div>; 
- 
- return ( 
-  <ul> 
-    {users.map(u => ( 
-     <li key={u.id}>{u.name}</li> 
-    ))} 
-  </ul> 
- );
+// Définition des propriétés attendues par le composant
+interface Props {
+  users: string[];
 }
+
+// Composant qui reçoit la liste des utilisateurs en props
+export function UserList({ users }: Props) {
+  return (
+    <ul>
+      {/* On affiche chaque utilisateur dans un <li> */}
+      {users.map((user, index) => (
+        <li key={index}>{user}</li>
+      ))}
+    </ul>
+  );
+}
+

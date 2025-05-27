@@ -105,6 +105,7 @@ jobs:
   # ---------------------------------------
   # 4. E2E Tests (Playwright) 
   # --------------------------------------- 
+
   test-e2e: 
     name: E2E Tests 
     runs-on: ubuntu-latest 
@@ -123,6 +124,15 @@ jobs:
           
       - name: Install dependencies 
         run: yarn install --frozen-lockfile 
+      
+      - name: Start server
+        run: yarn start &
+
+      - name: Wait for server to be ready
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          url: 'http://localhost:3000'
+          timeout: 60
         
       - name: Run E2E tests 
         run: yarn e2e 
